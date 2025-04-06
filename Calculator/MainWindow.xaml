@@ -4,7 +4,7 @@
         Title="Калькулятор" Height="350" Width="400">
     <Grid>
         <Grid
-            Margin="10,10,10,240">
+            Margin="10,10,10,230">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
@@ -12,8 +12,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBox x:Name="AuxiliaryDisplay" FontSize="12" IsReadOnly="True" Grid.Row="0" Grid.Column="0" />
-            <TextBox x:Name="Display" FontSize="24" IsReadOnly="True" Grid.Row="1" Grid.Column="0" />
+            <TextBox x:Name="AuxiliaryDisplay" FontSize="12" IsReadOnly="True" Grid.Row="0" Grid.Column="0" TextAlignment="Right" />
+            <TextBox x:Name="Display" FontSize="24" IsReadOnly="True" Grid.Row="1" Grid.Column="0" TextAlignment="Right" />
         </Grid>
         <Grid
             Margin="10, 110, 10, 10">
@@ -32,30 +32,30 @@
             </Grid.RowDefinitions>
 
             <!-- Кнопки для цифр -->
-            <Button Content="1" Grid.Row="2" Grid.Column="0"/>
-            <Button Content="2" Grid.Row="2" Grid.Column="1"/>
-            <Button Content="3" Grid.Row="2" Grid.Column="2"/>
-            <Button Content="4" Grid.Row="1" Grid.Column="0"/>
-            <Button Content="5" Grid.Row="1" Grid.Column="1"/>
-            <Button Content="6" Grid.Row="1" Grid.Column="2"/>
-            <Button Content="7" Grid.Row="0" Grid.Column="0"/>
-            <Button Content="8" Grid.Row="0" Grid.Column="1"/>
-            <Button Content="9" Grid.Row="0" Grid.Column="2"/>
-            <Button Content="0" Grid.Row="3" Grid.Column="0"/>
+            <Button Content="1" Grid.Row="2" Grid.Column="0" Click="Button_Click" />
+            <Button Content="2" Grid.Row="2" Grid.Column="1" Click="Button_Click" />
+            <Button Content="3" Grid.Row="2" Grid.Column="2" Click="Button_Click" />
+            <Button Content="4" Grid.Row="1" Grid.Column="0" Click="Button_Click" />
+            <Button Content="5" Grid.Row="1" Grid.Column="1" Click="Button_Click" />
+            <Button Content="6" Grid.Row="1" Grid.Column="2" Click="Button_Click" />
+            <Button Content="7" Grid.Row="0" Grid.Column="0" Click="Button_Click" />
+            <Button Content="8" Grid.Row="0" Grid.Column="1" Click="Button_Click" />
+            <Button Content="9" Grid.Row="0" Grid.Column="2" Click="Button_Click" />
+            <Button Content="0" Grid.Row="3" Grid.Column="0" Click="Button_Click" />
 
             <!-- Кнопки операций -->
-            <Button Content="+" Grid.Row="2" Grid.Column="3" Background="#FFACD4D3"/>
-            <Button Content="-" Grid.Row="2" Grid.Column="4" Background="#FFACD4D3"/>
-            <Button Content="*" Grid.Row="1" Grid.Column="3" Background="#FFACD4D3"/>
-            <Button Content="/" Grid.Row="1" Grid.Column="4" Background="#FFACD4D3"/>
-            <Button Content="^" Grid.Row="3" Grid.Column="3" Background="#FFACD4D3"/>
-            <Button Content="+/-" Grid.Row="3" Grid.Column="2" Background="#FFACD4D3"/>
+            <Button Content="+" Grid.Row="2" Grid.Column="3" Click="Operation_Click" Background="#FFACD4D3"/>
+            <Button Content="-" Grid.Row="2" Grid.Column="4" Click="Operation_Click" Background="#FFACD4D3"/>
+            <Button Content="*" Grid.Row="1" Grid.Column="3" Click="Operation_Click" Background="#FFACD4D3"/>
+            <Button Content="/" Grid.Row="1" Grid.Column="4" Click="Operation_Click" Background="#FFACD4D3"/>
+            <Button Content="^" Grid.Row="3" Grid.Column="3" Click="Operation_Click" Background="#FFACD4D3"/>
 
             <!-- Кнопки специальные -->
-            <Button Content="=" Grid.Row="3" Grid.Column="4" Background="#FFAECB96"/>
-            <Button Content="," Grid.Row="3" Grid.Column="1" Background="#FFACD4D3"/>
-            <Button Content="DEL" Grid.Row="0" Grid.Column="3" Background="#FFED9F9F"/>
-            <Button Content="АC" Grid.Row="0" Grid.Column="4" Background="#FFED9F9F"/>
+            <Button Content="=" Grid.Row="3" Grid.Column="4" Click="Equals_Click" Background="#FFAECB96"/>
+            <Button Content="," Grid.Row="3" Grid.Column="1" Click="Special_Click" Background="#FFACD4D3"/>
+            <Button Content="DEL" Grid.Row="0" Grid.Column="3" Click="Del_Click" Background="#FFED9F9F"/>
+            <Button Content="АC" Grid.Row="0" Grid.Column="4" Click="Clear_Click" Background="#FFED9F9F"/>
+            <Button Content="+/-" Grid.Row="3" Grid.Column="2" Click="Special_Click" Background="#FFACD4D3"/>
         </Grid>
     </Grid>
 </Window>

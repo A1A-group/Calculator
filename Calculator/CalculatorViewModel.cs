@@ -9,9 +9,12 @@ namespace Calculator
 {
     class CalculatorViewModel
     {
-        private Calculator calculator;
+        private SimpleCalculator calculator;
         private string display;
         private string auxiliryDisplay;
+
+        private bool operationChoose;
+        private bool finalAnswer;
 
         public string Display
         {
@@ -33,34 +36,74 @@ namespace Calculator
 
         public CalculatorViewModel()
         {
-            calculator = new Calculator();
+            calculator = new SimpleCalculator();
             Display = "0";
             AuxiliaryDisplay = "";
+
+            operationChoose = false;
+            finalAnswer = false;
         }
 
         public void NumberButtonClick(string number)
         {
-            if (Display == "0")
+            if (finalAnswer) Clear();
+
+            if (Display == "0" || operationChoose)
+            {
                 Display = number;
-            else
-                Display += number;
+            }
+            else Display += number;
+
+            operationChoose = false;
         }
 
         public void OperationButtonClick(string operation)
         {
             double number = double.Parse(Display);
-            calculator.PerformOperation(number);
+
+            if (!operationChoose)
+            {
+                calculator.PerformOperation(number); // проверка на первое число
+            }
+
+            Display = calculator.Result.ToString();
             calculator.SetOperation(operation);
-            Display = "0";
-            AuxiliaryDisplay = number.ToString() + operation;
+            AuxiliaryDisplay = calculator.Result.ToString() + operation;
+
+            operationChoose = true; // операция выбрана
+            finalAnswer = false;
+        }
+
+        public void SpecialButtonClick(string operation)
+        {
+            if (!finalAnswer)
+            {
+                double number = double.Parse(Display);
+                switch (operation)
+                {
+                    case "+/-":
+                        number *= -1; // Изменяем знак
+                        Display = number.ToString();
+                        break;
+                    case ",":
+                        if (!Display.Contains(",")) Display += ","; // Добавляем запятую
+                        break;
+                }
+            }
         }
 
         public void EqualsClick()
         {
             double number = double.Parse(Display);
+
             calculator.PerformOperation(number);
+
+            //operationChoose = true;
+
             Display = calculator.Result.ToString();
             AuxiliaryDisplay += number.ToString() + "=";
+
+            finalAnswer = true;
         }
 
         public void Clear() // Метод для AC
@@ -68,6 +111,9 @@ namespace Calculator
             calculator.Clear();
             Display = "0";
             AuxiliaryDisplay = "";
+
+            operationChoose = false;
+            finalAnswer = false;
         }
 
         public void Del() // Метод для DEL
@@ -79,6 +125,7 @@ namespace Calculator
             else
             {
                 Display = "0"; // Если у нас остается пустая строка, устанавливаем "0"
+                operationChoose = false;
             }
         }
     }

@@ -26,33 +26,52 @@ namespace Calculator
         {
             InitializeComponent();
             viewModel = new CalculatorViewModel();
+            DataContext = viewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             viewModel.NumberButtonClick(button.Content.ToString());
+            UpdateDisplay();
         }
 
         private void Operation_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             viewModel.OperationButtonClick(button.Content.ToString());
+            UpdateDisplay();
+        }
+
+        private void Special_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            viewModel.SpecialButtonClick(button.Content.ToString());
+            UpdateDisplay();
         }
 
         private void Equals_Click(object sender, RoutedEventArgs e)
         {
             viewModel.EqualsClick();
+            UpdateDisplay();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             viewModel.Clear();
+            UpdateDisplay();
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
             viewModel.Del();
+            UpdateDisplay();
+        }
+
+        private void UpdateDisplay()
+        {
+            Display.Text = viewModel.Display.ToString();
+            AuxiliaryDisplay.Text = viewModel.AuxiliaryDisplay.ToString();
         }
     }
 }

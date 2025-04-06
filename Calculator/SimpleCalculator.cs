@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    class Calculator
+    class SimpleCalculator
     {
         private double result;
         private string operation;
@@ -18,27 +18,30 @@ namespace Calculator
             this.operation = operation;
         }
 
-        public void PerformOperation(double number)
+        public void PerformOperation(double secondNumber)
         {
             switch (operation)
             {
                 case "+":
-                    result += number;
+                    result += secondNumber;
                     break;
                 case "-":
-                    result -= number;
+                    result -= secondNumber;
                     break;
                 case "*":
-                    result *= number;
+                    result *= secondNumber;
                     break;
                 case "/":
-                    if (number != 0)
-                        result /= number;
+                    if (secondNumber != 0)
+                        result /= secondNumber;
                     else
                         throw new DivideByZeroException("Деление на ноль!");
                     break;
+
+                    // добавить операцию возведения в степень и того чего не хватает в функционале
+
                 default:
-                    result = number;
+                    result = secondNumber;
                     break;
             }
         }
