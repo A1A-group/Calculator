@@ -20,9 +20,39 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CalculatorViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            viewModel = new CalculatorViewModel();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            viewModel.NumberButtonClick(button.Content.ToString());
+        }
+
+        private void Operation_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            viewModel.OperationButtonClick(button.Content.ToString());
+        }
+
+        private void Equals_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.EqualsClick();
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Clear();
+        }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Del();
         }
     }
 }
