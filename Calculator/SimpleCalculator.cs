@@ -31,14 +31,15 @@ namespace Calculator
                 case "*":
                     result *= secondNumber;
                     break;
+                case "^":
+                    result = Math.Pow(result, secondNumber);
+                    break;
                 case "/":
                     if (secondNumber != 0)
                         result /= secondNumber;
                     else
-                        throw new DivideByZeroException("Деление на ноль!");
+                        throw new DivideByZeroException("Деление на ноль!");    
                     break;
-
-                    // добавить операцию возведения в степень и того чего не хватает в функционале
 
                 default:
                     result = secondNumber;
