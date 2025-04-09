@@ -12,14 +12,17 @@ namespace Calculator
         private string operation;
 
         public double Result => result;
+        public string Operation => operation;
 
         public void SetOperation(string operation)
         {
             this.operation = operation;
         }
+        private double lastOperand; 
 
         public void PerformOperation(double secondNumber)
         {
+            lastOperand = secondNumber;
             switch (operation)
             {
                 case "+":
@@ -44,6 +47,11 @@ namespace Calculator
                     result = secondNumber;
                     break;
             }
+        }
+        // Новый метод для повторной операции
+        public void RepeatLastOperation()
+        {
+            PerformOperation(lastOperand);
         }
 
         public void Clear()
