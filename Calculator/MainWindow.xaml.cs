@@ -27,6 +27,12 @@ namespace Calculator
             InitializeComponent();
             viewModel = new CalculatorViewModel();
             DataContext = viewModel;
+            this.PreviewKeyDown += MainWindow_PreviewKeyDown;
+        }
+        private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            CalculatorBinds.HandleKey(e, viewModel);
+            UpdateDisplay();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

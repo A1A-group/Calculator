@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    class CalculatorViewModel
+    public class CalculatorViewModel
     {
         private SimpleCalculator calculator;
         private string display;
@@ -61,10 +61,11 @@ namespace Calculator
         {
             double number = double.Parse(Display);
 
-            if (!operationChoose)
+            if (!operationChoose && !finalAnswer)
             {
-                calculator.PerformOperation(number); // проверка на первое число
+                calculator.PerformOperation(number);
             }
+
 
             Display = calculator.Result.ToString();
             calculator.SetOperation(operation);
@@ -94,15 +95,19 @@ namespace Calculator
 
         public void EqualsClick()
         {
-            double number = double.Parse(Display);
-
-            calculator.PerformOperation(number);
-
-            //operationChoose = true;
+            if (!finalAnswer)
+            {
+                double number = double.Parse(Display);
+                calculator.PerformOperation(number);
+                AuxiliaryDisplay += number.ToString() + "=";
+            }
+            else
+            {
+                calculator.RepeatLastOperation();
+                AuxiliaryDisplay = calculator.Result.ToString() + calculator.Operation + "=";
+            }
 
             Display = calculator.Result.ToString();
-            AuxiliaryDisplay += number.ToString() + "=";
-
             finalAnswer = true;
         }
 
