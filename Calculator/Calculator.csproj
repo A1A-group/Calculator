@@ -55,15 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DivideOperation.cs" />
+    <Compile Include="MultiplyOperation.cs" />
+    <Compile Include="OperationFactory.cs" />
+    <Compile Include="PowerOperation.cs" />
+    <Compile Include="SubtractOperation.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddOperation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CalculatorBinds.cs" />
+    <Compile Include="IOperation.cs" />
     <Compile Include="SimpleCalculator.cs" />
     <Compile Include="CalculatorViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
