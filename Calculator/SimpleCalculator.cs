@@ -9,32 +9,47 @@ namespace Calculator
     class SimpleCalculator
     {
         private double result;
-        private IOperation operation;
-        private string operationSymbol;
-        private double lastOperand;
+        private string operation;
 
         public double Result => result;
-        public string Operation => operationSymbol;
+        public string Operation => operation;
 
-        public void SetOperation(string operationSymbol)
+        public void SetOperation(string operation)
         {
-            this.operation = OperationFactory.Create(operationSymbol);
-            this.operationSymbol = operationSymbol;
+            this.operation = operation;
         }
+        private double lastOperand; 
 
         public void PerformOperation(double secondNumber)
         {
             lastOperand = secondNumber;
-            if (operation != null)
+            switch (operation)
             {
-                result = operation.Execute(result, secondNumber);
-            }
-            else
-            {
-                result = secondNumber; // первый ввод
+                case "+":
+                    result += secondNumber;
+                    break;
+                case "-":
+                    result -= secondNumber;
+                    break;
+                case "*":
+                    result *= secondNumber;
+                    break;
+                case "^":
+                    result = Math.Pow(result, secondNumber);
+                    break;
+                case "/":
+                    if (secondNumber != 0)
+                        result /= secondNumber;
+                    else
+                        throw new DivideByZeroException("Деление на ноль!");    
+                    break;
+
+                default:
+                    result = secondNumber;
+                    break;
             }
         }
-
+        // Новый метод для повторной операции
         public void RepeatLastOperation()
         {
             PerformOperation(lastOperand);
@@ -43,8 +58,7 @@ namespace Calculator
         public void Clear()
         {
             result = 0;
-            operationSymbol = string.Empty;
-            operation = null;
+            operation = string.Empty;
         }
     }
 }

@@ -95,31 +95,21 @@ namespace Calculator
 
         public void EqualsClick()
         {
-            try
+            if (!finalAnswer)
             {
-                if (!finalAnswer)
-                {
-                    double number = double.Parse(Display);
-                    calculator.PerformOperation(number);
-                    AuxiliaryDisplay += number.ToString() + "=";
-                }
-                else
-                {
-                    calculator.RepeatLastOperation();
-                    AuxiliaryDisplay = calculator.Result.ToString() + calculator.Operation + "=";
-                }
+                double number = double.Parse(Display);
+                calculator.PerformOperation(number);
+                AuxiliaryDisplay += number.ToString() + "=";
+            }
+            else
+            {
+                calculator.RepeatLastOperation();
+                AuxiliaryDisplay = calculator.Result.ToString() + calculator.Operation + "=";
+            }
 
-                Display = calculator.Result.ToString();
-                finalAnswer = true;
-            }
-            catch (DivideByZeroException ex)
-            {
-                Display = "Ошибка";
-                AuxiliaryDisplay = ex.Message;
-                finalAnswer = true;
-            }
+            Display = calculator.Result.ToString();
+            finalAnswer = true;
         }
-
 
         public void Clear() // Метод для AC
         {
