@@ -55,24 +55,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DivideOperation.cs" />
-    <Compile Include="MultiplyOperation.cs" />
-    <Compile Include="OperationFactory.cs" />
-    <Compile Include="PowerOperation.cs" />
-    <Compile Include="SubtractOperation.cs" />
+    <Compile Include="Operations\DivideOperation.cs" />
+    <Compile Include="Operations\MultiplyOperation.cs" />
+    <Compile Include="Operations\OperationFactory.cs" />
+    <Compile Include="Operations\PowerOperation.cs" />
+    <Compile Include="Operations\SubtractOperation.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddOperation.cs" />
+    <Compile Include="Operations\AddOperation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CalculatorBinds.cs" />
-    <Compile Include="IOperation.cs" />
-    <Compile Include="SimpleCalculator.cs" />
-    <Compile Include="CalculatorViewModel.cs" />
+    <Compile Include="Calculator\CalculatorBinds.cs" />
+    <Compile Include="Operations\IOperation.cs" />
+    <Compile Include="Calculator\SimpleCalculator.cs" />
+    <Compile Include="Calculator\CalculatorViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -96,6 +96,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
