@@ -16,7 +16,7 @@ using Calculator;
 using SimpleCalculatorFactory;
 using SimpleCalculatorMVVM;
 
-namespace Calculator
+namespace SimpleCalculatorMVVM
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -75,7 +75,7 @@ namespace Calculator
         {
             Button button = (Button)sender;
             IButton specialButton = buttonFactory.CreateButton("Special", button.Content.ToString());
-            viewModel.SpecialButtonClick(button.Content.ToString());
+            viewModel.SpecialButtonClick(specialButton.Press());
             UpdateDisplay();
         }
 
