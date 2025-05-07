@@ -55,13 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ButtonFactory.cs" />
+    <Compile Include="Buttons\ButtonFactory.cs" />
     <Compile Include="Buttons\ClearButton.cs" />
     <Compile Include="Buttons\DeleteButton.cs" />
     <Compile Include="Buttons\DigitButton.cs" />
     <Compile Include="Buttons\EqualsButton.cs" />
     <Compile Include="Buttons\OperatorButton.cs" />
     <Compile Include="Buttons\IButton.cs" />
+    <Compile Include="CalculatorBinds.cs" />
+    <Compile Include="CalculatorViewModel.cs" />
+    <Compile Include="SimpleCalculator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +80,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operations\AddOperation.cs" />
+    <Compile Include="Operations\DivideOperation.cs" />
+    <Compile Include="Operations\IOperation.cs" />
+    <Compile Include="Operations\MultiplyOperation.cs" />
+    <Compile Include="Operations\OperationFactory.cs" />
+    <Compile Include="Operations\PowerOperation.cs" />
+    <Compile Include="Operations\SubtractOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -101,16 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Calculator\Calculator.csproj">
-      <Project>{bacc20e5-631f-4b28-87c1-076a2c37f32c}</Project>
-      <Name>Calculator</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimpleCalculatorFactory\SimpleCalculatorFactory.csproj">
-      <Project>{ebefd182-0d82-4f0b-b00b-c97420c3fadf}</Project>
-      <Name>SimpleCalculatorFactory</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

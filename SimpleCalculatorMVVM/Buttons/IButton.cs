@@ -9,5 +9,6 @@ namespace SimpleCalculatorMVVM
     public interface IButton
     {
         string Press();
+        string Type { get; } 
     }
 }

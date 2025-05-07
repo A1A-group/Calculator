@@ -9,5 +9,6 @@ namespace SimpleCalculatorMVVM
     public class DeleteButton : IButton
     {
         public string Press() => "DEL";
+        public string Type => "Delete"; // Тип кнопки
     }
 }

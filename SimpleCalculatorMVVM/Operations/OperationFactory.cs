@@ -23,7 +23,8 @@ namespace SimpleCalculatorMVVM
                 case "^":
                     return new PowerOperation();
                 default:
-                    throw new InvalidOperationException("Неизвестная операция");
+                    return null;
+                    //throw new InvalidOperationException("Неизвестная операция: " + operation);
             }
         }
     }

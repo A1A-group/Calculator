@@ -9,5 +9,6 @@ namespace SimpleCalculatorMVVM
     public class EqualsButton : IButton
     {
         public string Press() => "=";
+        public string Type => "Equals"; // Тип кнопки
     }
 }

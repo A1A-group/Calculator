@@ -9,5 +9,6 @@ namespace SimpleCalculatorMVVM
     public class ClearButton : IButton
     {
         public string Press() => "AC";
+        public string Type => "Clear"; // Тип кнопки
     }
 }

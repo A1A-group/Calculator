@@ -16,5 +16,6 @@ namespace SimpleCalculatorMVVM
         }
 
         public string Press() => _digit.ToString();
+        public string Type => "Digit"; // Тип кнопки
     }
 }

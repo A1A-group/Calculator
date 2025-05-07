@@ -16,5 +16,6 @@ namespace SimpleCalculatorMVVM
         }
 
         public string Press() => _operation;
+        public string Type => "Operator"; // Тип кнопки
     }
 }

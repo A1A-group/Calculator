@@ -19,7 +19,15 @@
             lastOperand = secondNumber;
 
             IOperation op = OperationFactory.Create(operation);
-            result = op.Calculate(result, secondNumber);
+
+            if (op == null)
+            {
+                result = secondNumber;
+            }
+            else
+            {
+                result = op.Calculate(result, secondNumber);
+            }
         }
 
         public void RepeatLastOperation()

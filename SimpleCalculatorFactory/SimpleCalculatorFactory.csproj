@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Operations\DivideOperation.cs" />
-    <Compile Include="OperationFactory.cs" />
+    <Compile Include="Operations\OperationFactory.cs" />
     <Compile Include="Operations\MultiplyOperation.cs" />
     <Compile Include="Operations\PowerOperation.cs" />
     <Compile Include="SimpleCalculator.cs" />
@@ -70,7 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IOperation.cs" />
+    <Compile Include="Operations\IOperation.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

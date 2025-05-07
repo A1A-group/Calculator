@@ -12,9 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Calculator;
-using SimpleCalculatorFactory;
-using SimpleCalculatorMVVM;
 
 namespace SimpleCalculatorMVVM
 {
@@ -45,44 +42,47 @@ namespace SimpleCalculatorMVVM
         {
             Button button = (Button)sender;
             IButton createdButton = buttonFactory.CreateButton("Digit", button.Content.ToString());
-            viewModel.NumberButtonClick(createdButton.Press());
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Operation_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             Button button = (Button)sender;
             IButton createdButton = buttonFactory.CreateButton("Operator", button.Content.ToString());
-            viewModel.OperationButtonClick(createdButton.Press());
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Equals_Click(object sender, RoutedEventArgs e)
         {
-            IButton equalsButton = buttonFactory.CreateButton("Equals");
-            viewModel.EqualsClick();
+            Button button = (Button)sender;
+            IButton createdButton = buttonFactory.CreateButton("Equals");
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            IButton clearButton = buttonFactory.CreateButton("Clear");
-            viewModel.Clear();
+            Button button = (Button)sender;
+            IButton createdButton = buttonFactory.CreateButton("Clear");
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Special_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            IButton specialButton = buttonFactory.CreateButton("Special", button.Content.ToString());
-            viewModel.SpecialButtonClick(specialButton.Press());
+            IButton createdButton = buttonFactory.CreateButton("Special", button.Content.ToString());
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
-            IButton deleteButton = buttonFactory.CreateButton("Delete");
-            viewModel.Del();
+            Button button = (Button)sender;
+            IButton createdButton = buttonFactory.CreateButton("Delete");
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 

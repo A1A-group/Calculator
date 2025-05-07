@@ -44,6 +44,33 @@ namespace SimpleCalculatorMVVM
             finalAnswer = false;
         }
 
+        public void HandleButtonClick(IButton button)
+        {
+            switch (button.Type)
+            {
+                case "Digit":
+                    NumberButtonClick(button.Press());
+                    break;
+                case "Operator":
+                    OperationButtonClick(button.Press());
+                    break;
+                case "Equals":
+                    EqualsClick();
+                    break;
+                case "Clear":
+                    Clear();
+                    break;
+                case "Delete":
+                    Del();
+                    break;
+                case "Special":
+                    SpecialButtonClick(button.Press());
+                    break;
+                default:
+                    throw new ArgumentException("Неизвестный тип кнопки");
+            }
+        }
+
         public void NumberButtonClick(string number)
         {
             if (finalAnswer) Clear();
