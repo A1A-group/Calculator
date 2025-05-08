@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Calculator;
 
-namespace SimpleCalculatorFactory
+namespace SimpleCalculatorMVVM
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -22,14 +21,17 @@ namespace SimpleCalculatorFactory
     public partial class MainWindow : Window
     {
         private CalculatorViewModel viewModel;
+        private ButtonFactory buttonFactory;
 
         public MainWindow()
         {
             InitializeComponent();
             viewModel = new CalculatorViewModel();
+            buttonFactory = new ButtonFactory();
             DataContext = viewModel;
             this.PreviewKeyDown += MainWindow_PreviewKeyDown;
         }
+
         private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             CalculatorBinds.HandleKey(e, viewModel);
@@ -39,39 +41,48 @@ namespace SimpleCalculatorFactory
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            viewModel.NumberButtonClick(button.Content.ToString());
+            IButton createdButton = buttonFactory.CreateButton("Digit", button.Content.ToString());
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Operation_Click(object sender, RoutedEventArgs e)
+        { 
+            Button button = (Button)sender;
+            IButton createdButton = buttonFactory.CreateButton("Operator", button.Content.ToString());
+            viewModel.HandleButtonClick(createdButton);
+            UpdateDisplay();
+        }
+
+        private void Equals_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            viewModel.OperationButtonClick(button.Content.ToString());
+            IButton createdButton = buttonFactory.CreateButton("Equals");
+            viewModel.HandleButtonClick(createdButton);
+            UpdateDisplay();
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            IButton createdButton = buttonFactory.CreateButton("Clear");
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Special_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            viewModel.SpecialButtonClick(button.Content.ToString());
-            UpdateDisplay();
-        }
-
-        private void Equals_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.EqualsClick();
-            UpdateDisplay();
-        }
-
-        private void Clear_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.Clear();
+            IButton createdButton = buttonFactory.CreateButton("Special", button.Content.ToString());
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Del();
+            Button button = (Button)sender;
+            IButton createdButton = buttonFactory.CreateButton("Delete");
+            viewModel.HandleButtonClick(createdButton);
             UpdateDisplay();
         }
 

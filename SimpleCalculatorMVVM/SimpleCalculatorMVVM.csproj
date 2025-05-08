@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EBEFD182-0D82-4F0B-B00B-C97420C3FADF}</ProjectGuid>
+    <ProjectGuid>{40BB6ECF-EE3B-4BF5-BBE4-7D2363C68D0E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SimpleCalculatorFactory</RootNamespace>
-    <AssemblyName>SimpleCalculatorFactory</AssemblyName>
+    <RootNamespace>SimpleCalculatorMVVM</RootNamespace>
+    <AssemblyName>SimpleCalculatorMVVM</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,28 +55,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Operations\DivideOperation.cs" />
-    <Compile Include="Operations\OperationFactory.cs" />
-    <Compile Include="Operations\MultiplyOperation.cs" />
-    <Compile Include="Operations\PowerOperation.cs" />
+    <Compile Include="Buttons\ButtonFactory.cs" />
+    <Compile Include="Buttons\ClearButton.cs" />
+    <Compile Include="Buttons\DeleteButton.cs" />
+    <Compile Include="Buttons\DigitButton.cs" />
+    <Compile Include="Buttons\EqualsButton.cs" />
+    <Compile Include="Buttons\OperatorButton.cs" />
+    <Compile Include="Buttons\IButton.cs" />
+    <Compile Include="CalculatorBinds.cs" />
+    <Compile Include="CalculatorViewModel.cs" />
     <Compile Include="SimpleCalculator.cs" />
-    <Compile Include="Operations\SubtractOperation.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Operations\AddOperation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Operations\IOperation.cs" />
+    <Compile Include="Buttons\SpecialButton.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operations\AddOperation.cs" />
+    <Compile Include="Operations\DivideOperation.cs" />
+    <Compile Include="Operations\IOperation.cs" />
+    <Compile Include="Operations\MultiplyOperation.cs" />
+    <Compile Include="Operations\OperationFactory.cs" />
+    <Compile Include="Operations\PowerOperation.cs" />
+    <Compile Include="Operations\SubtractOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,7 +104,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,12 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Calculator\Calculator.csproj">
-      <Project>{bacc20e5-631f-4b28-87c1-076a2c37f32c}</Project>
-      <Name>Calculator</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
