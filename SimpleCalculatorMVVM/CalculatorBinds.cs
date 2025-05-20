@@ -9,17 +9,17 @@ namespace SimpleCalculatorMVVM
 {
     public static class CalculatorBinds
     {
-        public static void HandleKey(KeyEventArgs e, CalculatorViewModel viewModel)
+        public static ICommand HandleKey(KeyEventArgs e, CalculatorViewModel viewModel)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9)
             {
                 string number = (e.Key - Key.D0).ToString();
-                viewModel.NumberButtonClick(number);
+                return new DigitCommand(viewModel, number); /*viewModel.NumberClick(number);*/
             }
             else if (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
                 string number = (e.Key - Key.NumPad0).ToString();
-                viewModel.NumberButtonClick(number);
+                return new DigitCommand(viewModel, number); /*viewModel.NumberClick(number);*/
             }
             else
             {
@@ -27,45 +27,48 @@ namespace SimpleCalculatorMVVM
                 {
                     case Key.Add:
                     case Key.OemPlus when Keyboard.Modifiers == ModifierKeys.None:
-                        viewModel.OperationButtonClick("+");
-                        break;
+                        return new OperatorCommand(viewModel, "+"); /*viewModel.OperationClick("+");*/
+                        //break;
 
                     case Key.Subtract:
                     case Key.OemMinus:
-                        viewModel.OperationButtonClick("-");
-                        break;
+                        return new OperatorCommand(viewModel, "-"); /*viewModel.OperationClick("-");*/
+                        //break;
 
                     case Key.Multiply:
-                        viewModel.OperationButtonClick("*");
-                        break;
+                        return new OperatorCommand(viewModel, "*"); /*viewModel.OperationClick("*");*/
+                        //break;
 
                     case Key.Divide:
                     case Key.Oem2: // '/' на основной клавиатуре
-                        viewModel.OperationButtonClick("/");
-                        break;
+                        return new OperatorCommand(viewModel, "/"); /*viewModel.OperationClick("/");*/
+                        //break;
 
                     
                     case Key.Return:
-                        viewModel.EqualsClick();
-                        break;
+                        return new EqualsCommand(viewModel); /*viewModel.EqualsClick();*/
+                        //break;
 
                     case Key.Back:
-                        viewModel.Del();
-                        break;
+                        return new DeleteCommand(viewModel); /*viewModel.DeleteClick();*/
+                        //break;
 
                     case Key.Delete:
                     case Key.Escape:
-                        viewModel.Clear();
-                        break;
+                        return new ClearCommand(viewModel); /*viewModel.ClearClick();*/
+                        //break;
 
                     case Key.OemComma:
                     case Key.Decimal:
-                        viewModel.SpecialButtonClick(",");
-                        break;
+                        return new SpecialOperatorCommand(viewModel, ","); /*viewModel.SpecialOperationClick(",");*/
+                        //break;
 
                     case Key.F9:
-                        viewModel.SpecialButtonClick("+/-");
-                        break;
+                        return new SpecialOperatorCommand(viewModel, "+/-"); /*viewModel.SpecialOperationClick("+/-");*/
+                        //break;
+
+                    default:
+                        return null;
                 }
             }
         }
