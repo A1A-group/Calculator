@@ -44,36 +44,14 @@ namespace SimpleCalculatorMVVM
             finalAnswer = false;
         }
 
-        public void HandleButtonClick(IButton button)
+        public void HandleCommand(ICommand command)
         {
-            switch (button.Type)
-            {
-                case "Digit":
-                    NumberButtonClick(button.Press());
-                    break;
-                case "Operator":
-                    OperationButtonClick(button.Press());
-                    break;
-                case "Equals":
-                    EqualsClick();
-                    break;
-                case "Clear":
-                    Clear();
-                    break;
-                case "Delete":
-                    Del();
-                    break;
-                case "Special":
-                    SpecialButtonClick(button.Press());
-                    break;
-                default:
-                    throw new ArgumentException("Неизвестный тип кнопки");
-            }
+            command?.Execute();
         }
 
-        public void NumberButtonClick(string number)
+        public void NumberClick(string number)
         {
-            if (finalAnswer) Clear();
+            if (finalAnswer) ClearClick();
 
             if (Display == "0" || operationChoose)
             {
@@ -84,7 +62,7 @@ namespace SimpleCalculatorMVVM
             operationChoose = false;
         }
 
-        public void OperationButtonClick(string operation)
+        public void OperationClick(string operation)
         {
             double number = double.Parse(Display);
 
@@ -92,7 +70,6 @@ namespace SimpleCalculatorMVVM
             {
                 calculator.PerformOperation(number);
             }
-
 
             Display = calculator.Result.ToString();
             calculator.SetOperation(operation);
@@ -102,7 +79,7 @@ namespace SimpleCalculatorMVVM
             finalAnswer = false;
         }
 
-        public void SpecialButtonClick(string operation)
+        public void SpecialOperationClick(string operation)
         {
             if (!finalAnswer)
             {
@@ -148,7 +125,7 @@ namespace SimpleCalculatorMVVM
         }
 
 
-        public void Clear() // Метод для AC
+        public void ClearClick() // Метод для AC
         {
             calculator.Clear();
             Display = "0";
@@ -158,7 +135,7 @@ namespace SimpleCalculatorMVVM
             finalAnswer = false;
         }
 
-        public void Del() // Метод для DEL
+        public void DeleteClick() // Метод для DEL
         {
             if (Display.Length > 1)
             {

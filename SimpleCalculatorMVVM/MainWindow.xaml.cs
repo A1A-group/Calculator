@@ -21,68 +21,65 @@ namespace SimpleCalculatorMVVM
     public partial class MainWindow : Window
     {
         private CalculatorViewModel viewModel;
-        private ButtonFactory buttonFactory;
-
+       
         public MainWindow()
         {
             InitializeComponent();
             viewModel = new CalculatorViewModel();
-            buttonFactory = new ButtonFactory();
+
             DataContext = viewModel;
             this.PreviewKeyDown += MainWindow_PreviewKeyDown;
         }
 
         private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            CalculatorBinds.HandleKey(e, viewModel);
+            ICommand bindCommand = CalculatorBinds.HandleKey(e, viewModel);
+            viewModel.HandleCommand(bindCommand);
             UpdateDisplay();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            IButton createdButton = buttonFactory.CreateButton("Digit", button.Content.ToString());
-            viewModel.HandleButtonClick(createdButton);
+            ICommand command = new DigitCommand(viewModel, button.Content.ToString());
+            viewModel.HandleCommand(command);
             UpdateDisplay();
         }
 
         private void Operation_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             Button button = (Button)sender;
-            IButton createdButton = buttonFactory.CreateButton("Operator", button.Content.ToString());
-            viewModel.HandleButtonClick(createdButton);
+            ICommand command = new OperatorCommand(viewModel, button.Content.ToString());
+            viewModel.HandleCommand(command);
             UpdateDisplay();
         }
 
         private void Equals_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-            IButton createdButton = buttonFactory.CreateButton("Equals");
-            viewModel.HandleButtonClick(createdButton);
+            ICommand command = new EqualsCommand(viewModel);
+            viewModel.HandleCommand(command);
             UpdateDisplay();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-            IButton createdButton = buttonFactory.CreateButton("Clear");
-            viewModel.HandleButtonClick(createdButton);
+            ICommand command = new ClearCommand(viewModel);
+            viewModel.HandleCommand(command);
             UpdateDisplay();
         }
 
         private void Special_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            IButton createdButton = buttonFactory.CreateButton("Special", button.Content.ToString());
-            viewModel.HandleButtonClick(createdButton);
+            ICommand command = new SpecialOperatorCommand(viewModel, button.Content.ToString());
+            viewModel.HandleCommand(command);
             UpdateDisplay();
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-            IButton createdButton = buttonFactory.CreateButton("Delete");
-            viewModel.HandleButtonClick(createdButton);
+            ICommand command = new DeleteCommand(viewModel);
+            viewModel.HandleCommand(command);
             UpdateDisplay();
         }
 

@@ -55,15 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Buttons\ButtonFactory.cs" />
-    <Compile Include="Buttons\ClearButton.cs" />
-    <Compile Include="Buttons\DeleteButton.cs" />
-    <Compile Include="Buttons\DigitButton.cs" />
-    <Compile Include="Buttons\EqualsButton.cs" />
-    <Compile Include="Buttons\OperatorButton.cs" />
-    <Compile Include="Buttons\IButton.cs" />
     <Compile Include="CalculatorBinds.cs" />
     <Compile Include="CalculatorViewModel.cs" />
+    <Compile Include="Commands\ClearCommand.cs" />
+    <Compile Include="Commands\DeleteCommand.cs" />
+    <Compile Include="Commands\DigitCommand.cs" />
+    <Compile Include="Commands\EqualsCommand.cs" />
+    <Compile Include="Commands\OperatorCommand.cs" />
+    <Compile Include="Commands\SpecialOperatorCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="SimpleCalculator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -73,7 +73,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Buttons\SpecialButton.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -113,5 +112,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
