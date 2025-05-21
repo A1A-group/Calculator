@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleCalculatorMVVM;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace SimpleCalculatorMVVM
 {
     public class CalculatorViewModel
     {
-        private SimpleCalculator calculator;
+        private CalculatorFacade calculator;
         private string display;
         private string auxiliryDisplay;
 
@@ -36,7 +37,7 @@ namespace SimpleCalculatorMVVM
 
         public CalculatorViewModel()
         {
-            calculator = new SimpleCalculator();
+            calculator = new CalculatorFacade();
             Display = "0";
             AuxiliaryDisplay = "";
 
@@ -123,7 +124,6 @@ namespace SimpleCalculatorMVVM
                 finalAnswer = true;
             }
         }
-
 
         public void ClearClick() // Метод для AC
         {
