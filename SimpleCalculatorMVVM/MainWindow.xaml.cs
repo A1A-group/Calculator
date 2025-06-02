@@ -88,5 +88,82 @@ namespace SimpleCalculatorMVVM
             Display.Text = viewModel.Display.ToString();
             AuxiliaryDisplay.Text = viewModel.AuxiliaryDisplay.ToString();
         }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            // Получаем начальные значения шрифта из ресурсов
+            // Приводим к типу Style и получаем FontSize из Setter
+            Style auxiliaryStyle = (Style)this.FindResource("AuxiliaryDisplayStyle");
+            Style displayStyle = (Style)this.FindResource("DisplayStyle");
+            Style buttonStyle = (Style)this.FindResource("ButtonStyle");
+            Style menuItemStyle = (Style)this.FindResource("MenuItemStyle");
+
+            double initialAuxiliaryFontSize = (double)(auxiliaryStyle.Setters[0] as Setter).Value;
+            double initialDisplayFontSize = (double)(displayStyle.Setters[0] as Setter).Value;
+            double initialButtonFontSize = (double)(buttonStyle.Setters[0] as Setter).Value;
+            double initialMenuItemFontSize = (double)(menuItemStyle.Setters[0] as Setter).Value;
+
+            // Устанавливаем новый размер шрифта в зависимости от высоты окна
+            double scaleFactor = e.NewSize.Height / this.MinHeight;
+
+            AuxiliaryDisplay.FontSize = initialAuxiliaryFontSize * scaleFactor; // Увеличиваем шрифт для верхнего дисплея
+            Display.FontSize = initialDisplayFontSize * scaleFactor; // Увеличиваем шрифт для нижнего дисплея
+
+            // Увеличиваем шрифт для кнопок
+            foreach (UIElement element in FindVisualChildren<Button>(this))
+            {
+                if (element is Button button)
+                {
+                    button.FontSize = initialButtonFontSize * scaleFactor; // Увеличиваем шрифт для кнопок
+                }
+            }
+
+            // Увеличиваем шрифт для пунктов меню
+            foreach (UIElement element in FindVisualChildren<MenuItem>(this))
+            {
+                if (element is MenuItem menuItem)
+                {
+                    double fontSize = initialMenuItemFontSize * scaleFactor; // Увеличиваем шрифт для пунктов меню
+                    menuItem.FontSize = (fontSize < 18) ? fontSize : 18;
+                }
+            }
+        }
+
+        // Метод для поиска всех детей визуального дерева
+        private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown(); 
+        }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Это калькулятор. Используйте кнопки для выполнения операций.", "Помощь", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void AboutProgram_Click(object sender, RoutedEventArgs e)
+        {
+            // Добавить пункт о программе
+            MessageBox.Show("Что нибудь написать о программе калькулятор...", "О программе", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }
