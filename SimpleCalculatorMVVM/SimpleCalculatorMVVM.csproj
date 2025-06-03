@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Calculator Classes\CalculatorBinds.cs" />
     <Compile Include="Calculator Classes\CalculatorFacade.cs" />
     <Compile Include="Calculator Classes\CalculatorViewModel.cs" />
@@ -68,11 +71,22 @@
     <Compile Include="Commands\OperatorCommand.cs" />
     <Compile Include="Commands\SpecialOperatorCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Json classes\ConfigLoader.cs" />
     <Compile Include="Json classes\WindowSettings\Modes.cs" />
     <Compile Include="Json classes\WindowSettings\SizeSettings.cs" />
     <Compile Include="Json classes\WindowSettings\WindowSettings.cs" />
     <Compile Include="Calculator Classes\SimpleCalculator.cs" />
+    <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourseDictionaries\DarkTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

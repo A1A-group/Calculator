@@ -1,0 +1,25 @@
+﻿<Window x:Class="SimpleCalculatorMVVM.WindowAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleCalculatorMVVM"
+        mc:Ignorable="d"
+            Title="О программе" Height="200" Width="300" Background="{DynamicResource BackgroundColor}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ResourseDictionaries/Styles.xaml"/>
+                <ResourceDictionary Source="/ResourseDictionaries/LightTheme.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <StackPanel Margin="10">
+        <TextBlock Text="Калькулятор версии 1.0 ляляляля" TextWrapping="Wrap" Foreground="{DynamicResource ForegroundColor}"/>
+        <TextBlock Text="Разработчик: " TextWrapping="Wrap" Margin="0,5,0,0" Foreground="{DynamicResource ForegroundColor}"/>
+        <Button Content="Закрыть" Click="CloseButton_Click" Margin="0,10,0,0" Style="{DynamicResource ButtonStyle}"/>
+    </StackPanel>
+</Window>

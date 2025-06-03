@@ -175,14 +175,16 @@ namespace SimpleCalculatorMVVM
 
         private void Help_Click(object sender, RoutedEventArgs e)
         {
-            // Добавить пункт о помощи
-            MessageBox.Show("Это калькулятор. Используйте кнопки для выполнения операций.", "Помощь", MessageBoxButton.OK, MessageBoxImage.Information);
+            string theme = DarkThemeMenuItem.IsChecked == true ? "Dark" : "Light";
+            HelpWindow aboutWindow = new HelpWindow(theme);
+            aboutWindow.ShowDialog(); // Открываем окно как диалог
         }
 
         private void AboutProgram_Click(object sender, RoutedEventArgs e)
         {
-            // Добавить пункт о программе
-            MessageBox.Show("Что нибудь написать о программе калькулятор...", "О программе", MessageBoxButton.OK, MessageBoxImage.Information);
+            string theme = DarkThemeMenuItem.IsChecked == true ? "Dark" : "Light";
+            AboutWindow aboutWindow = new AboutWindow(theme);
+            aboutWindow.ShowDialog(); // Открываем окно как диалог
         }
 
         private void ApplyTheme(string theme)
@@ -207,8 +209,6 @@ namespace SimpleCalculatorMVVM
 
             Resources.MergedDictionaries.Add(themeDict);
         }
-
-        
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
