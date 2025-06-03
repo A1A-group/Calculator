@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Ресурсы для светлой темы -->
+    <SolidColorBrush x:Key="BackgroundColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ForegroundColor" Color="#000000"/>
+    <SolidColorBrush x:Key="DisplayBackgroundColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="DiaplayForegroundColor" Color="#000000"/>
+    <SolidColorBrush x:Key="ButtonBackground" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="ButtonForeground" Color="#000000"/>
+    <SolidColorBrush x:Key="OperationButtonBackground" Color="#FFACD4D3"/>
+    <SolidColorBrush x:Key="OperationButtonForeground" Color="#000000"/>
+    <SolidColorBrush x:Key="DelButtonBackground" Color="#FFED9F9F"/>
+    <SolidColorBrush x:Key="DelButtonForeground" Color="#000000"/>
+    <SolidColorBrush x:Key="EqualsButtonBackground" Color="#FFAECB96"/>
+    <SolidColorBrush x:Key="EqualsButtonForeground" Color="#000000"/>
+    <SolidColorBrush x:Key="MenuItemBackgroundColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="MenuItemForegroundColor" Color="#000000"/>
+</ResourceDictionary>

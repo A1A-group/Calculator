@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,9 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalculatorBinds.cs" />
-    <Compile Include="CalculatorFacade.cs" />
-    <Compile Include="CalculatorViewModel.cs" />
+    <Compile Include="Calculator Classes\CalculatorBinds.cs" />
+    <Compile Include="Calculator Classes\CalculatorFacade.cs" />
+    <Compile Include="Calculator Classes\CalculatorViewModel.cs" />
     <Compile Include="Commands\ClearCommand.cs" />
     <Compile Include="Commands\DeleteCommand.cs" />
     <Compile Include="Commands\DigitCommand.cs" />
@@ -65,7 +68,19 @@
     <Compile Include="Commands\OperatorCommand.cs" />
     <Compile Include="Commands\SpecialOperatorCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="SimpleCalculator.cs" />
+    <Compile Include="Json classes\ConfigLoader.cs" />
+    <Compile Include="Json classes\WindowSettings\Modes.cs" />
+    <Compile Include="Json classes\WindowSettings\SizeSettings.cs" />
+    <Compile Include="Json classes\WindowSettings\WindowSettings.cs" />
+    <Compile Include="Calculator Classes\SimpleCalculator.cs" />
+    <Page Include="ResourseDictionaries\DarkTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourseDictionaries\LightTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +93,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ResourseDictionaries\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Operations\AddOperation.cs" />
@@ -105,6 +124,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
