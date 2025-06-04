@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SimpleCalculatorMVVM.Json_classes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -46,9 +45,22 @@ namespace SimpleCalculatorMVVM
 
         private void LoadSettings()
         {
-            string relativePath = @"windowSettings.json"; 
+            string relativePath = @"windowSettings.json";
             string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
-            windowSettings = ConfigLoader.LoadWindowSettings(fullPath);
+
+            try
+            {
+                windowSettings = ConfigLoader.LoadWindowSettings(fullPath);
+            }
+            catch (FileNotFoundException)
+            {
+                // Настройки не найдены, устанавливаем значения по умолчанию
+                windowSettings = new WindowSettings
+                {
+                    WindowSize = new SizeSettings { Width = 350, Height = 300 },
+                    Modes = new Modes { DarkThemeEnabled = false }
+                };
+            }
         }
 
         private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
