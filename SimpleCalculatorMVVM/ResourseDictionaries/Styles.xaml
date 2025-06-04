@@ -4,7 +4,7 @@
     <sys:Double x:Key="FontSizeDisplay">30</sys:Double>
     <sys:Double x:Key="FontSizeButton">12</sys:Double>
     <sys:Double x:Key="FontSizeMenuItem">12</sys:Double>
-    
+
     <Style x:Key="AuxiliaryDisplayStyle" TargetType="TextBox">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeAuxiliary}"/>
         <Setter Property="Background" Value="{DynamicResource DisplayBackgroundColor}"/>

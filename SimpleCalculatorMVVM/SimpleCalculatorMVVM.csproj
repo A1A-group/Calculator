@@ -75,6 +75,7 @@
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Json classes\ConfigLoader.cs" />
+    <Compile Include="Json classes\FontSettings\FontSetting.cs" />
     <Compile Include="Json classes\WindowSettings\Modes.cs" />
     <Compile Include="Json classes\WindowSettings\SizeSettings.cs" />
     <Compile Include="Json classes\WindowSettings\WindowSettings.cs" />

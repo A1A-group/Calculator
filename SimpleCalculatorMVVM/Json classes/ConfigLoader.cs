@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace SimpleCalculatorMVVM.Json_classes
+namespace SimpleCalculatorMVVM
 {
     public class ConfigLoader
     {
@@ -19,6 +19,17 @@ namespace SimpleCalculatorMVVM.Json_classes
 
             string json = File.ReadAllText(filePath);
             return JsonConvert.DeserializeObject<WindowSettings>(json);
+        }
+
+        public static FontSettings LoadFontSettings(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("Файл с настройками шрифтов не найден.", filePath);
+            }
+
+            string json = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<FontSettings>(json);
         }
     }
 }

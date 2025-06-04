@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SimpleCalculatorMVVM.Json_classes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +25,7 @@ namespace SimpleCalculatorMVVM
         private CalculatorViewModel viewModel;
 
         private WindowSettings windowSettings;
+        private FontSettings fontSettings;
 
         public MainWindow()
         {
@@ -34,21 +34,73 @@ namespace SimpleCalculatorMVVM
 
             DataContext = viewModel;
 
-            LoadSettings();
+            LoadWindowSettings();
+            ApplyWindowSettings();
 
             DarkThemeMenuItem.IsChecked = windowSettings.Modes.DarkThemeEnabled;
 
             this.Width = windowSettings.WindowSize.Width;
             this.Height = windowSettings.WindowSize.Height;
 
+            LoadFontSettings();
+            ApplyFontSettings();
+
             this.PreviewKeyDown += MainWindow_PreviewKeyDown;
         }
 
-        private void LoadSettings()
+        private void LoadWindowSettings()
         {
-            string relativePath = @"windowSettings.json"; 
+            string relativePath = @"windowSettings.json";
             string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
-            windowSettings = ConfigLoader.LoadWindowSettings(fullPath);
+
+            try
+            {
+                windowSettings = ConfigLoader.LoadWindowSettings(fullPath);
+            }
+            catch (FileNotFoundException)
+            {
+                // Настройки не найдены, устанавливаем значения по умолчанию
+                windowSettings = new WindowSettings
+                {
+                    WindowSize = new SizeSettings { Width = 350, Height = 300 },
+                    Modes = new Modes { DarkThemeEnabled = false }
+                };
+            }
+        }
+
+        private void ApplyWindowSettings()
+        {
+            
+        }
+
+        private void LoadFontSettings()
+        {
+            string relativePath = @"fontSettings.json";
+            string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+            try
+            {
+                fontSettings = ConfigLoader.LoadFontSettings(fullPath);
+            }
+            catch (FileNotFoundException)
+            {
+                // Установите значения по умолчанию, если файл не найден
+                fontSettings = new FontSettings
+                {
+                    FontSizeAuxiliary = 24,
+                    FontSizeDisplay = 30,
+                    FontSizeButton = 12,
+                    FontSizeMenuItem = 12
+                };
+            }
+        }
+
+        private void ApplyFontSettings()
+        {
+            Resources["FontSizeAuxiliary"] = fontSettings.FontSizeAuxiliary;
+            Resources["FontSizeDisplay"] = fontSettings.FontSizeDisplay;
+            Resources["FontSizeButton"] = fontSettings.FontSizeButton;
+            Resources["FontSizeMenuItem"] = fontSettings.FontSizeMenuItem;
         }
 
         private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)

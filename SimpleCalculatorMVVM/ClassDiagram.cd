@@ -4,20 +4,20 @@
     <Position X="9.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAACACAAAAIAEAAAAQAgAAEAAACAAAAEBAgAACE=</HashCode>
-      <FileName>CalculatorViewModel.cs</FileName>
+      <FileName>Calculator Classes\CalculatorViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCalculatorMVVM.SimpleCalculator">
     <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAgABAAAAAAAABAAAAAQAAAAAAAAAgAEAAABBAAA=</HashCode>
-      <FileName>SimpleCalculator.cs</FileName>
+      <FileName>Calculator Classes\SimpleCalculator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCalculatorMVVM.MainWindow" BaseTypeListCollapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIIAAAAAAAAAAAAAIAQAAEAAAAAAAIAAAAFAAAAAAA=</HashCode>
+      <HashCode>AAIIEAABAAAAAAAAEJEQAAcAQgAAAAIABAAFAQIIBAQ=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -74,7 +74,42 @@
     <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAABAAAAAAIAAAAAAAQAAAAAAAAAgAEAAABAAAA=</HashCode>
-      <FileName>CalculatorFacade.cs</FileName>
+      <FileName>Calculator Classes\CalculatorFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleCalculatorMVVM.Json_classes.FontSettings.FontSettings">
+    <Position X="14" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Json classes\FontSettings\FontSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleCalculatorMVVM.Modes">
+    <Position X="18.25" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Json classes\WindowSettings\Modes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleCalculatorMVVM.SizeSettings">
+    <Position X="18.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Json classes\WindowSettings\SizeSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleCalculatorMVVM.WindowSettings">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAA=</HashCode>
+      <FileName>Json classes\WindowSettings\WindowSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleCalculatorMVVM.ConfigLoader">
+    <Position X="15.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQ=</HashCode>
+      <FileName>Json classes\ConfigLoader.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="SimpleCalculatorMVVM.ICommand">
