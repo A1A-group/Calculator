@@ -37,11 +37,6 @@ namespace SimpleCalculatorMVVM
             LoadWindowSettings();
             ApplyWindowSettings();
 
-            DarkThemeMenuItem.IsChecked = windowSettings.Modes.DarkThemeEnabled;
-
-            this.Width = windowSettings.WindowSize.Width;
-            this.Height = windowSettings.WindowSize.Height;
-
             LoadFontSettings();
             ApplyFontSettings();
 
@@ -70,7 +65,10 @@ namespace SimpleCalculatorMVVM
 
         private void ApplyWindowSettings()
         {
-            
+            DarkThemeMenuItem.IsChecked = windowSettings.Modes.DarkThemeEnabled;
+
+            this.Width = windowSettings.WindowSize.Width;
+            this.Height = windowSettings.WindowSize.Height;
         }
 
         private void LoadFontSettings()
