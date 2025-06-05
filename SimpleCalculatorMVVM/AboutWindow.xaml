@@ -1,0 +1,29 @@
+﻿<Window x:Class="SimpleCalculatorMVVM.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="О программе" Height="220" Width="300"
+        Background="{DynamicResource BackgroundColor}" ResizeMode="NoResize">
+
+    <StackPanel Margin="10">
+        <TextBlock Text="Калькулятор версии 1.0"
+                   TextWrapping="Wrap"
+                   Foreground="{DynamicResource ForegroundColor}"/>
+
+        <TextBlock Text="Разработчики:"
+                   Margin="0,5,0,0"
+                   Foreground="{DynamicResource ForegroundColor}"/>
+
+        <TextBlock Text="Швед Константин"
+                   Margin="10,0,0,0"
+                   Foreground="{DynamicResource ForegroundColor}"/>
+        <TextBlock Text="Цыбулькин Артём"
+                   Margin="10,0,0,0"
+                   Foreground="{DynamicResource ForegroundColor}"/>
+        <TextBlock Text="Евтухович Ксения"
+                   Margin="10,0,0,0"
+                   Foreground="{DynamicResource ForegroundColor}"/>
+
+        <Button Content="Закрыть" Click="CloseButton_Click" Margin="0,10,0,0"
+                Style="{DynamicResource ButtonStyle}"/>
+    </StackPanel>
+</Window>

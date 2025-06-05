@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:Double x:Key="FontSizeAuxiliary">24</sys:Double>
+    <sys:Double x:Key="FontSizeDisplay">30</sys:Double>
+    <sys:Double x:Key="FontSizeButton">12</sys:Double>
+    <sys:Double x:Key="FontSizeMenuItem">12</sys:Double>
+
+    <Style x:Key="AuxiliaryDisplayStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeAuxiliary}"/>
+        <Setter Property="Background" Value="{DynamicResource DisplayBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DisplayForegroundColor}"/>
+    </Style>
+    <Style x:Key="DisplayStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeDisplay}"/>
+        <Setter Property="Background" Value="{DynamicResource DisplayBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DisplayForegroundColor}"/>
+    </Style>
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeButton}"/>
+        <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+    </Style>
+    <Style x:Key="OperationButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeButton}"/>
+        <Setter Property="Background" Value="{DynamicResource OperationButtonBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource OperationButtonForeground}"/>
+    </Style>
+    <Style x:Key="DelButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeButton}"/>
+        <Setter Property="Background" Value="{DynamicResource DelButtonBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DelButtonForeground}"/>
+    </Style>
+    <Style x:Key="EqualsButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeButton}"/>
+        <Setter Property="Background" Value="{DynamicResource EqualsButtonBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource EqualsButtonForeground}"/>
+    </Style>
+
+    <Style TargetType="Menu">
+        <Setter Property="Background" Value="{DynamicResource MenuItemBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MenuItemForegroundColor}"/>
+    </Style>
+
+    <Style TargetType="MenuItem">
+        <Setter Property="Background" Value="{DynamicResource MenuItemBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MenuItemForegroundColor}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeMenuItem}"/>
+    </Style>
+</ResourceDictionary>
