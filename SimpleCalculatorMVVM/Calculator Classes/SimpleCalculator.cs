@@ -1,4 +1,6 @@
-﻿namespace SimpleCalculatorMVVM
+﻿using OperationDLL1;
+
+namespace SimpleCalculatorMVVM
 {
     class SimpleCalculator
     {

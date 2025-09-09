@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleCalculatorMVVM
+namespace OperationDLL1
 {
     public class DivideOperation : IOperation
     {
