@@ -1,4 +1,4 @@
-﻿namespace SimpleCalculatorMVVM
+﻿namespace OperationDLL1
 {
     public class SubtractOperation : IOperation
     {
