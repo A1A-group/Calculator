@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationDLL", "OperationDL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationDLL1", "OperationDLL1\OperationDLL1.csproj", "{9A170020-611D-4450-AF2F-71A18C3BC0DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculatorMVVM.Tests", "SimpleCalculatorMVVM.Tests\SimpleCalculatorMVVM.Tests.csproj", "{DB0484C3-FEAF-4AA3-B282-AEF3358BC1F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9A170020-611D-4450-AF2F-71A18C3BC0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A170020-611D-4450-AF2F-71A18C3BC0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A170020-611D-4450-AF2F-71A18C3BC0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB0484C3-FEAF-4AA3-B282-AEF3358BC1F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB0484C3-FEAF-4AA3-B282-AEF3358BC1F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB0484C3-FEAF-4AA3-B282-AEF3358BC1F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB0484C3-FEAF-4AA3-B282-AEF3358BC1F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
