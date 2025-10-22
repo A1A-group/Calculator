@@ -6,7 +6,7 @@ namespace SimpleCalculatorMVVM.Tests
     [TestClass]
     public class AddOperationTests
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(10, 3, 13)]   // обычные положительные числа
         [DataRow(-5, -2, -7)]  // отрицательные числа
         [DataRow(-5, 5, 0)]    // сумма в ноль
