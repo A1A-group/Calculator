@@ -82,7 +82,6 @@ namespace SimpleCalculatorMVVM
             }
             catch (FileNotFoundException)
             {
-                // Установите значения по умолчанию, если файл не найден
                 fontSettings = new FontSettings
                 {
                     FontSizeAuxiliary = 24,
