@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace Calculator
 {
+    /// <summary>
+    /// Класс для обработки нажатий клавиш и их привязки к модели представления.
+    /// </summary>
     public static class CalculatorBinds
     {
+        /// <summary>
+        /// Обрабатывает нажатие клавиш.
+        /// </summary>
+        /// <param name="e">Аргументы события нажатия клавиши.</param>
+        /// <param name="viewModel">Экземпляр модели представления.</param>
         public static void HandleKey(KeyEventArgs e, CalculatorViewModel viewModel)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9)
@@ -40,11 +43,10 @@ namespace Calculator
                         break;
 
                     case Key.Divide:
-                    case Key.Oem2: // '/' на основной клавиатуре
+                    case Key.Oem2:
                         viewModel.OperationButtonClick("/");
                         break;
 
-                    
                     case Key.Return:
                         viewModel.EqualsClick();
                         break;

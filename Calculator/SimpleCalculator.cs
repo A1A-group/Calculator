@@ -1,25 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator
 {
+    /// <summary>
+    /// Класс для простого калькулятора.
+    /// </summary>
     class SimpleCalculator
     {
         private double result;
         private string operation;
+        private double lastOperand;
 
+        /// <summary>
+        /// Получает результат последней операции.
+        /// </summary>
         public double Result => result;
+
+        /// <summary>
+        /// Получает последнюю операцию.
+        /// </summary>
         public string Operation => operation;
 
+        /// <summary>
+        /// Устанавливает операцию для калькулятора.
+        /// </summary>
+        /// <param name="operation">Операция в виде строки.</param>
         public void SetOperation(string operation)
         {
             this.operation = operation;
         }
-        private double lastOperand; 
 
+        /// <summary>
+        /// Выполняет операцию с заданным числом.
+        /// </summary>
+        /// <param name="secondNumber">Второе число для операции.</param>
         public void PerformOperation(double secondNumber)
         {
             lastOperand = secondNumber;
@@ -41,20 +55,25 @@ namespace Calculator
                     if (secondNumber != 0)
                         result /= secondNumber;
                     else
-                        throw new DivideByZeroException("Деление на ноль!");    
+                        throw new DivideByZeroException("Деление на ноль!");
                     break;
-
                 default:
                     result = secondNumber;
                     break;
             }
         }
-        // Новый метод для повторной операции
+
+        /// <summary>
+        /// Повторяет последнюю операцию.
+        /// </summary>
         public void RepeatLastOperation()
         {
             PerformOperation(lastOperand);
         }
 
+        /// <summary>
+        /// Очищает результаты калькулятора.
+        /// </summary>
         public void Clear()
         {
             result = 0;

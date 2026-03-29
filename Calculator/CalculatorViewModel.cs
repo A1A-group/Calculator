@@ -1,49 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator
 {
+    /// <summary>
+    /// Модель представления для калькулятора.
+    /// </summary>
     public class CalculatorViewModel
     {
         private SimpleCalculator calculator;
         private string display;
-        private string auxiliryDisplay;
-
+        private string auxiliaryDisplay;
         private bool operationChoose;
         private bool finalAnswer;
 
+        /// <summary>
+        /// Получает или устанавливает текст на дисплее калькулятора.
+        /// </summary>
         public string Display
         {
             get => display;
-            set
-            {
-                display = value;
-            }
+            set => display = value;
         }
 
+        /// <summary>
+        /// Получает или устанавливает текст на вспомогательном дисплее.
+        /// </summary>
         public string AuxiliaryDisplay
         {
-            get => auxiliryDisplay;
-            set
-            {
-                auxiliryDisplay = value;
-            }
+            get => auxiliaryDisplay;
+            set => auxiliaryDisplay = value;
         }
 
+        /// <summary>
+        /// Конструктор модели представления.
+        /// </summary>
         public CalculatorViewModel()
         {
             calculator = new SimpleCalculator();
             Display = "0";
             AuxiliaryDisplay = "";
-
             operationChoose = false;
             finalAnswer = false;
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие кнопки числа.
+        /// </summary>
+        /// <param name="number">Строка с числом.</param>
         public void NumberButtonClick(string number)
         {
             if (finalAnswer) Clear();
@@ -57,6 +60,10 @@ namespace Calculator
             operationChoose = false;
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие кнопки операции.
+        /// </summary>
+        /// <param name="operation">Строка с операцией.</param>
         public void OperationButtonClick(string operation)
         {
             double number = double.Parse(Display);
@@ -66,15 +73,18 @@ namespace Calculator
                 calculator.PerformOperation(number);
             }
 
-
             Display = calculator.Result.ToString();
             calculator.SetOperation(operation);
             AuxiliaryDisplay = calculator.Result.ToString() + operation;
 
-            operationChoose = true; // операция выбрана
+            operationChoose = true;
             finalAnswer = false;
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие специальных кнопок.
+        /// </summary>
+        /// <param name="operation">Строка с операцией.</param>
         public void SpecialButtonClick(string operation)
         {
             if (!finalAnswer)
@@ -83,16 +93,19 @@ namespace Calculator
                 switch (operation)
                 {
                     case "+/-":
-                        number *= -1; // Изменяем знак
+                        number *= -1;
                         Display = number.ToString();
                         break;
                     case ",":
-                        if (!Display.Contains(",")) Display += ","; // Добавляем запятую
+                        if (!Display.Contains(",")) Display += ",";
                         break;
                 }
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие кнопки равенства.
+        /// </summary>
         public void EqualsClick()
         {
             try
@@ -120,18 +133,22 @@ namespace Calculator
             }
         }
 
-
-        public void Clear() // Метод для AC
+        /// <summary>
+        /// Очищает все поля и состояния.
+        /// </summary>
+        public void Clear()
         {
             calculator.Clear();
             Display = "0";
             AuxiliaryDisplay = "";
-
             operationChoose = false;
             finalAnswer = false;
         }
 
-        public void Del() // Метод для DEL
+        /// <summary>
+        /// Удаляет последний ввод.
+        /// </summary>
+        public void Del()
         {
             if (Display.Length > 1)
             {
@@ -139,7 +156,7 @@ namespace Calculator
             }
             else
             {
-                Display = "0"; // Если у нас остается пустая строка, устанавливаем "0"
+                Display = "0";
                 operationChoose = false;
             }
         }

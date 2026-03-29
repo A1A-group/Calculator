@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculatorFactory", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculatorMVVM", "SimpleCalculatorMVVM\SimpleCalculatorMVVM.csproj", "{40BB6ECF-EE3B-4BF5-BBE4-7D2363C68D0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationDLL", "OperationDLL\OperationDLL.csproj", "{D7DB51C5-1C72-BBE7-85FA-F908C78F63B6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationDLL1", "OperationDLL1\OperationDLL1.csproj", "{9A170020-611D-4450-AF2F-71A18C3BC0DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculatorMVVM.Tests", "SimpleCalculatorMVVM.Tests\SimpleCalculatorMVVM.Tests.csproj", "{DB0484C3-FEAF-4AA3-B282-AEF3358BC1F7}"
@@ -33,10 +31,6 @@ Global
 		{40BB6ECF-EE3B-4BF5-BBE4-7D2363C68D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40BB6ECF-EE3B-4BF5-BBE4-7D2363C68D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40BB6ECF-EE3B-4BF5-BBE4-7D2363C68D0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7DB51C5-1C72-BBE7-85FA-F908C78F63B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7DB51C5-1C72-BBE7-85FA-F908C78F63B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7DB51C5-1C72-BBE7-85FA-F908C78F63B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7DB51C5-1C72-BBE7-85FA-F908C78F63B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9A170020-611D-4450-AF2F-71A18C3BC0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A170020-611D-4450-AF2F-71A18C3BC0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A170020-611D-4450-AF2F-71A18C3BC0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
